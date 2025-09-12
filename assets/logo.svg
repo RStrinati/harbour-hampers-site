@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Harbour Hampers logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#4A90E2"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="28" fill="url(#g)"/>
+  <g fill="#fff">
+    <path d="M48 150c24 20 48 30 80 30s56-10 80-30v24c-24 20-48 30-80 30s-56-10-80-30v-24z" opacity=".9"/>
+    <path d="M48 118c24 20 48 30 80 30s56-10 80-30v24c-24 20-48 30-80 30s-56-10-80-30v-24z" opacity=".85"/>
+    <path d="M76 96h104a12 12 0 0 1 12 12v12c-24 14-48 20-64 20s-40-6-64-20v-12a12 12 0 0 1 12-12z" opacity="1"/>
+    <circle cx="92" cy="86" r="10"/>
+    <circle cx="164" cy="86" r="10"/>
+  </g>
+</svg>
