@@ -3,16 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Harbour Hampers – Welcome Hampers for Sydney Stays</title>
-  <meta name="description" content="Pre-arrival welcome hampers for Sydney Airbnb & short‑stay hosts. Local favourites, guest essentials, and on-time delivery. Request a complimentary sample.">
-  <meta property="og:title" content="Harbour Hampers – Welcome Hampers for Sydney Stays">
-  <meta property="og:description" content="Pre-arrival welcome hampers for Sydney Airbnb & short‑stay hosts. Request a complimentary sample.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/logo.svg">
-  <link rel="icon" href="assets/logo.svg">
+  <title>Harbour Hampers – Booking Requests</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <header class="site-header container">
     <div class="brand">
       <img src="assets/logo.svg" alt="Harbour Hampers logo" class="logo">
@@ -33,147 +28,20 @@
         <p class="lead">Pre-arrival <strong>Welcome Hampers</strong> for Sydney hosts — local treats, guest essentials, and a mini guide, delivered before check‑in.</p>
         <a class="btn btn-primary" href="#request">Request a complimentary sample</a>
         <p class="trust">For Airbnb & short‑stay property managers across Greater Sydney.</p>
-      </div>
-      <div class="hero-card">
-        <ul class="ticks">
-          <li>Pre-arrival delivery windows</li>
-          <li>Shelf-stable & eco packaging</li>
-          <li>White‑label options for your brand</li>
-        </ul>
-      </div>
-    </section>
 
-    <section id="how-it-works" class="section container">
-      <h2>How it works</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>1) Choose your hamper</h3>
-          <p>Standard Sydney hamper with local snacks, tea/coffee, and a mini guide card. Optional add‑ons available.</p>
-        </div>
-        <div class="card">
-          <h3>2) Tell us your schedule</h3>
-          <p>We deliver <strong>before guest arrival</strong> to your listings. Set preferred days and time windows.</p>
-        </div>
-        <div class="card">
-          <h3>3) We handle the rest</h3>
-          <p>Assemble, deliver, and restock on a cadence that suits you. Volume discounts for managers.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="whats-inside" class="section container">
-      <h2>What’s inside the hamper</h2>
-      <div class="grid-2">
-        <ul class="list">
-          <li>Tim Tams & Byron Bay Cookies</li>
-          <li>T2 tea & locally roasted coffee</li>
-          <li>Mini local honey/jam</li>
-          <li>2x sparkling waters</li>
-          <li>Reusable tote & welcome card</li>
-          <li>Eco toiletries (optional)</li>
-        </ul>
-        <div class="note">
-          <p><strong>Local guide card included:</strong> Top coffee, beaches, eats, must‑see spots & transport tips. Suburb add‑ons available (Bondi, Surry Hills, Manly).</p>
-          <p class="small">Looking for white‑label? We can include your brand materials.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="request" class="section container">
-      <h2>Request a complimentary sample</h2>
-      <p>Hosts & STR managers — tell us where to drop a sample. We’ll confirm delivery by email/SMS. By submitting, you consent to receive updates from us and can unsubscribe anytime.</p>
-
-      <form id="lead-form" class="form" method="POST">
-        <!-- Replace YOUR_FORMSPREE_ID below with your Formspree form ID -->
-        <input type="hidden" id="form-endpoint" value="https://formspree.io/f/xrbadbyq">
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">Full name *</label>
-            <input id="name" name="name" type="text" required>
-          </div>
-          <div class="field">
-            <label for="company">Company / Manager name</label>
-            <input id="company" name="company" type="text">
-          </div>
-          <div class="field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div class="field">
-            <label for="phone">Phone (for delivery)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+61…">
-          </div>
-          <div class="field">
-            <label for="listings"># of listings managed</label>
-            <input id="listings" name="listings" type="number" min="0" step="1">
-          </div>
-          <div class="field">
-            <label for="suburbs">Delivery suburbs</label>
-            <input id="suburbs" name="suburbs" type="text" placeholder="e.g., Bondi, Surry Hills, Manly">
-          </div>
-          <div class="field">
-            <label for="window">Preferred delivery window</label>
-            <select id="window" name="window">
-              <option value="">Select…</option>
-              <option>Weekdays 9–12</option>
-              <option>Weekdays 12–3</option>
-              <option>Weekdays 3–6</option>
-              <option>Weekends (by arrangement)</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="source">How did you hear about us?</label>
-            <select id="source" name="source">
-              <option value="">Select…</option>
-              <option>Airbnb Community</option>
-              <option>Facebook/Host Group</option>
-              <option>Cleaner/Linen Partner</option>
-              <option>Referral</option>
-              <option>Search</option>
-            </select>
-          </div>
-          <div class="field field-span">
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know? Access codes, building notes, etc."></textarea>
-          </div>
-          <div class="field field-span checkbox">
-            <input id="consent" name="consent" type="checkbox" required>
-            <label for="consent">I agree to receive emails/SMS about my sample & updates, and consent to my data being used per the <a href="#privacy" class="link">Privacy Notice</a>. *</label>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" type="submit">Send my sample request</button>
-        <p id="form-status" role="status" aria-live="polite" class="status"></p>
-      </form>
-
-      <details id="privacy" class="privacy">
-        <summary>Privacy Notice (AU)</summary>
-        <p>We collect the information on this form to arrange a sample delivery and to contact you with product updates. You can opt out at any time. We do not sell your data. Data is stored securely and accessed only by our team. For questions, email hello@example.com.</p>
-      </details>
-    </section>
-
-    <section id="bookings" class="section container">
-      <h2>Booking Requests</h2>
+  <main class="container">
+    <h1>Harbour Hampers Booking Requests</h1>
+    <section id="loader">
       <label for="ical-url">iCal URL</label>
       <div class="row">
         <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics" required>
-        <button id="load-btn" type="button">Load bookings</button>
+        <button id="load-btn">Load bookings</button>
+
       </div>
       <p id="load-status" class="status" aria-live="polite"></p>
-      <form id="booking-form" class="hidden">
-        <ul id="events-list"></ul>
-        <button type="submit" id="submit-btn" class="btn btn-primary">Submit selected</button>
-        <p id="submit-status" class="status" aria-live="polite"></p>
-      </form>
     </section>
+
   </main>
-
-  <footer class="site-footer container">
-    <p>© <span id="year"></span> Harbour Hampers · Sydney, Australia</p>
-    <p class="small">This site is informational. Airbnb® is a registered trademark of Airbnb, Inc. and not affiliated with this service.</p>
-  </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
