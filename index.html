@@ -7,9 +7,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="hero">
+    <h1>Harbour Hampers</h1>
+    <p>Delicious welcome hampers for your guests</p>
+  </header>
   <main class="container">
-    <h1>Harbour Hampers Booking Requests</h1>
+    <section class="intro">
+      <h2>Welcome</h2>
+      <p>Use this tool to request hampers for your upcoming bookings.</p>
+    </section>
+    <section class="process">
+      <h2>How it works</h2>
+      <ol>
+        <li>Paste your property's iCal URL below.</li>
+        <li>Select the bookings that need hampers.</li>
+        <li>Submit and we'll take care of the rest.</li>
+      </ol>
+    </section>
     <section id="loader">
+      <h2>Load bookings</h2>
       <label for="ical-url">iCal URL</label>
       <div class="row">
         <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics" required>
