@@ -22,6 +22,7 @@
       <a href="#how-it-works">How it works</a>
       <a href="#whats-inside">What’s inside</a>
       <a href="#request">Get a sample</a>
+      <a href="#bookings">Bookings</a>
     </nav>
   </header>
 
@@ -150,6 +151,21 @@
         <summary>Privacy Notice (AU)</summary>
         <p>We collect the information on this form to arrange a sample delivery and to contact you with product updates. You can opt out at any time. We do not sell your data. Data is stored securely and accessed only by our team. For questions, email hello@example.com.</p>
       </details>
+    </section>
+
+    <section id="bookings" class="section container">
+      <h2>Booking Requests</h2>
+      <label for="ical-url">iCal URL</label>
+      <div class="row">
+        <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics" required>
+        <button id="load-btn" type="button">Load bookings</button>
+      </div>
+      <p id="load-status" class="status" aria-live="polite"></p>
+      <form id="booking-form" class="hidden">
+        <ul id="events-list"></ul>
+        <button type="submit" id="submit-btn" class="btn btn-primary">Submit selected</button>
+        <p id="submit-status" class="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 

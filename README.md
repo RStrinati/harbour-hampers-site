@@ -22,6 +22,20 @@ This template uses **Formspree** for form submissions.
 
 > Tip: In Formspree, set a confirmation email and webhook if you want to pipe leads to a Google Sheet/CRM later.
 
+## Booking requests via iCal
+The page also lets hosts load an iCal feed of bookings, tick which stays need hampers and submit the selection to an API.
+
+1. **Deploy the worker**
+   - Create a Cloudflare Worker and paste in `server/worker.js`.
+   - Publish and note the Worker URL (e.g. `https://example.workers.dev`).
+2. **Configure the front end**
+   - In `script.js`, set:
+     ```js
+     const WORKER_BASE = 'https://example.workers.dev';
+     const SUBMIT_ENDPOINT = 'https://your-api.example.com/hamper-requests';
+     ```
+3. Paste an Airbnb/VRBO iCal URL on the page and load bookings. Select one or more events and submit to send a JSON payload to your endpoint.
+
 ## Local development
 Just open `index.html` in your browser. For a simple local server:
 ```bash
