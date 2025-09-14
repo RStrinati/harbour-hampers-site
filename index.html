@@ -7,6 +7,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <header class="site-header container">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Harbour Hampers logo" class="logo">
+      <span class="brand-name">Harbour Hampers</span>
+    </div>
+    <nav class="nav">
+      <a href="#how-it-works">How it works</a>
+      <a href="#whats-inside">What’s inside</a>
+      <a href="#request">Get a sample</a>
+      <a href="#bookings">Bookings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <h1>Wow every guest. Zero extra effort.</h1>
+        <p class="lead">Pre-arrival <strong>Welcome Hampers</strong> for Sydney hosts — local treats, guest essentials, and a mini guide, delivered before check‑in.</p>
+        <a class="btn btn-primary" href="#request">Request a complimentary sample</a>
+        <p class="trust">For Airbnb & short‑stay property managers across Greater Sydney.</p>
+
   <main class="container">
     <h1>Harbour Hampers Booking Requests</h1>
     <section id="loader">
@@ -14,14 +36,11 @@
       <div class="row">
         <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics" required>
         <button id="load-btn">Load bookings</button>
+
       </div>
       <p id="load-status" class="status" aria-live="polite"></p>
     </section>
-    <form id="booking-form" class="hidden">
-      <ul id="events-list"></ul>
-      <button type="submit" id="submit-btn">Submit selected</button>
-      <p id="submit-status" class="status" aria-live="polite"></p>
-    </form>
+
   </main>
   <script src="script.js"></script>
 </body>

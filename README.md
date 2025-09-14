@@ -46,6 +46,20 @@ This demo lets a host load an iCal feed of bookings, choose which stays need ham
 - Point `SUBMIT_ENDPOINT` to a request catcher (e.g., https://webhook.site) to verify the payload.
 - The Worker parser handles all-day events and timed events with/without `Z`.
 
+## Booking requests via iCal
+The page also lets hosts load an iCal feed of bookings, tick which stays need hampers and submit the selection to an API.
+
+1. **Deploy the worker**
+   - Create a Cloudflare Worker and paste in `server/worker.js`.
+   - Publish and note the Worker URL (e.g. `https://example.workers.dev`).
+2. **Configure the front end**
+   - In `script.js`, set:
+     ```js
+     const WORKER_BASE = 'https://example.workers.dev';
+     const SUBMIT_ENDPOINT = 'https://your-api.example.com/hamper-requests';
+     ```
+3. Paste an Airbnb/VRBO iCal URL on the page and load bookings. Select one or more events and submit to send a JSON payload to your endpoint.
+
 ## Local development
 
 No build step is required. Start a simple static file server (e.g., `python -m http.server 8000`) or open `index.html` directly.
