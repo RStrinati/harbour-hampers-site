@@ -1,51 +1,50 @@
-# Harbour Hampers – Booking Request Demo
+# HAMPA marketing page
 
-This demo lets a host load an iCal feed of bookings, choose which stays need hampers and submit the selection to an API.
+Static one-pager for HAMPA welcome hampers.
 
 ## Files
 
-- `index.html`, `styles.css`, `script.js` – front end.
-- `server/worker.js` – Cloudflare Worker proxy that fetches and parses `.ics` files.
+- `index.html` – landing page and forms.
+- `styles.css` – minimal theme.
+- `script.js` – Formspree submits and iCal loader.
+- `assets/` – logo; add your own `og.png` for social sharing.
+- `server/worker.js` – Cloudflare Worker proxy for iCal → JSON.
 
 ## Setup
 
 1. **Deploy the worker**
-   - Create a new Cloudflare Worker and paste in `server/worker.js`.
-   - Publish and note the Worker URL (e.g. `https://example.workers.dev`).
-2. **Configure the front end**
-   - In `script.js`, set:
-     ```js
-     const WORKER_BASE = 'https://example.workers.dev';
-     const SUBMIT_ENDPOINT = 'https://your-api.example.com/hamper-requests';
-     ```
-3. Serve `index.html` from any static host or open it directly in your browser.
+   - In Cloudflare dashboard create a Worker and paste `server/worker.js`.
+   - Publish and note the public URL (e.g. `https://example.workers.dev`).
+2. **Formspree endpoints**
+   - Create two forms in [Formspree](https://formspree.io).
+   - Replace the values of the hidden inputs `#form-endpoint` and `#hamper-endpoint` in `index.html` with the form URLs.
+3. **Configure `script.js`**
+   - Set `WORKER_BASE` to your Worker URL.
+4. **GitHub Pages**
+   - Push this repo to GitHub.
+   - In repository settings → Pages, choose the main branch root as the source.
+   - The site will be served from `https://<user>.github.io/<repo>/`.
 
 ## Usage
 
-1. Paste an Airbnb/VRBO iCal URL and click **Load bookings**.
-2. Upcoming events are listed with a checkbox and optional note field.
-3. Select one or more bookings and click **Submit selected**.
-4. The page sends a `POST` request to `SUBMIT_ENDPOINT` with JSON:
-   ```json
-   {
-     "ical_source": "<original url>",
-     "selected_bookings": [
-       {
-         "start": "2025-09-13T14:00:00Z",
-         "end": "2025-09-15T10:00:00Z",
-         "summary": "Reserved",
-         "note": "Please deliver after 1pm"
-       }
-     ]
-   }
-   ```
+1. Open the page via GitHub Pages or a local file server.
+2. Fill out the sample request form. Required fields and consent must be checked.
+3. For bookings, paste an Airbnb/VRBO/Booking.com iCal URL and click **Load bookings**.
+4. Select upcoming events, add notes and delivery preferences, confirm consent and submit.
+5. Both forms send `POST` requests to their Formspree endpoints and show inline success/error messages.
 
-## Testing
+## Worker endpoint
 
-- Use a real Airbnb iCal export for manual testing.
-- Point `SUBMIT_ENDPOINT` to a request catcher (e.g., https://webhook.site) to verify the payload.
-- The Worker parser handles all-day events and timed events with/without `Z`.
+`GET /ical?url=<encoded_ics_url>` → `{ "events": [{"start":"...","end":"...","summary":"..."}] }`
 
-## Local development
+Only calendars from `airbnb.com`, `airbnb.com.au`, `abnb.me`, `vrbo.com` and `booking.com` are proxied. CORS header `Access-Control-Allow-Origin: *` allows browser use.
 
-No build step is required. Start a simple static file server (e.g., `python -m http.server 8000`) or open `index.html` directly.
+## Development
+
+No build step is required. Serve the repo with any static server, e.g.:
+
+```bash
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000`.

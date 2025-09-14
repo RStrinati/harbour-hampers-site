@@ -3,42 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Harbour Hampers – Booking Requests</title>
+  <title>HAMPA – First Impressions, Handled.</title>
+  <meta name="description" content="Pre-arrival welcome hampers for Sydney short-stay hosts."/>
+  <meta property="og:image" content="assets/og.png"/>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
-    <h1>Harbour Hampers</h1>
-    <p>Delicious welcome hampers for your guests</p>
-  </header>
-  <main class="container">
-    <section class="intro">
-      <h2>Welcome</h2>
-      <p>Use this tool to request hampers for your upcoming bookings.</p>
-    </section>
-    <section class="process">
-      <h2>How it works</h2>
-      <ol>
-        <li>Paste your property's iCal URL below.</li>
-        <li>Select the bookings that need hampers.</li>
-        <li>Submit and we'll take care of the rest.</li>
-      </ol>
-    </section>
-    <section id="loader">
-      <h2>Load bookings</h2>
-      <label for="ical-url">iCal URL</label>
-      <div class="row">
-        <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics" required>
-        <button id="load-btn">Load bookings</button>
-      </div>
-      <p id="load-status" class="status" aria-live="polite"></p>
-    </section>
-    <form id="booking-form" class="hidden">
-      <ul id="events-list"></ul>
-      <button type="submit" id="submit-btn">Submit selected</button>
-      <p id="submit-status" class="status" aria-live="polite"></p>
+<header class="brand">
+  <img src="assets/logo.svg" alt="HAMPA" class="logo">
+</header>
+
+<section class="hero">
+  <h1>HAMPA</h1>
+  <p class="tagline">First Impressions, Handled.</p>
+  <p class="pitch">Pre-arrival welcome hampers for Sydney short-stay hosts — local favourites, guest essentials and a mini guide, delivered before check-in.</p>
+  <div class="actions">
+    <a href="#sample" class="btn">Request a sample</a>
+    <a href="#calendar" class="btn ghost">Connect calendar</a>
+  </div>
+</section>
+
+<main class="container">
+  <section class="how">
+    <h2>How it works</h2>
+    <ol class="cards">
+      <li>Choose your hamper <span class="note">(standard; options later)</span>.</li>
+      <li>Tell us your schedule <span class="note">(form or via calendar)</span>.</li>
+      <li>We handle the rest <span class="note">(assemble, deliver, restock)</span>.</li>
+    </ol>
+  </section>
+
+  <section class="inside">
+    <h2>What’s inside</h2>
+    <ul>
+      <li>Tim Tams</li>
+      <li>Byron Bay Cookies</li>
+      <li>T2 + local coffee</li>
+      <li>mini honey/jam</li>
+      <li>2× sparkling waters</li>
+      <li>tote + welcome card</li>
+      <li>optional eco toiletries</li>
+    </ul>
+    <p class="note">Local guide card included. Suburb add-ons: Bondi, Surry Hills, Manly.</p>
+  </section>
+
+  <section id="sample" class="lead">
+    <h2>Request a complimentary sample</h2>
+    <form id="lead-form">
+      <input type="hidden" id="form-endpoint" value="https://formspree.io/f/YOUR_FORMSPREE_ID">
+      <label for="name">Name*</label>
+      <input id="name" name="name" required>
+      <label for="company">Company</label>
+      <input id="company" name="company">
+      <label for="email">Email*</label>
+      <input id="email" name="email" type="email" required>
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel">
+      <label for="listings"># listings</label>
+      <input id="listings" name="listings" type="number" min="0">
+      <label for="suburbs">Delivery suburbs</label>
+      <input id="suburbs" name="suburbs">
+      <label class="checkbox"><input type="checkbox" id="consent" required> I agree to be contacted about HAMPA.</label>
+      <button type="submit" class="btn">Send request</button>
+      <p id="lead-status" class="status" aria-live="polite"></p>
     </form>
-  </main>
-  <script src="script.js"></script>
+    <details class="privacy">
+      <summary>Privacy notice</summary>
+      <p>We use your details solely to respond to your enquiry. Contact <a href="mailto:privacy@hampa.example">privacy@hampa.example</a> for access or removal.</p>
+    </details>
+  </section>
+
+  <section id="calendar" class="calendar">
+    <h2>Hosts — choose which bookings get a hamper</h2>
+    <label for="ical-url">iCal URL</label>
+    <div class="row">
+      <input id="ical-url" type="url" placeholder="https://example.com/calendar.ics">
+      <button id="load-btn" class="btn">Load bookings</button>
+    </div>
+    <p id="load-status" class="status" aria-live="polite"></p>
+
+    <form id="hamper-form" class="hidden">
+      <input type="hidden" id="hamper-endpoint" value="https://formspree.io/f/YOUR_FORMSPREE_ID2">
+      <ul id="events-list"></ul>
+      <label for="delivery-prefs">Delivery preferences</label>
+      <textarea id="delivery-prefs" rows="3"></textarea>
+      <label class="checkbox"><input type="checkbox" id="consent2" required> I confirm I am the host/manager and consent to sending booking dates to HAMPA.</label>
+      <button type="submit" class="btn">Submit</button>
+      <p id="hamper-status" class="status" aria-live="polite"></p>
+      <p class="footnote">iCal doesn’t include guest names; dates only.</p>
+    </form>
+
+    <details class="troubleshoot">
+      <summary>Troubleshooting</summary>
+      <p>If you see a CORS error, make sure you paste the Airbnb export URL above and that the request goes through the Worker proxy.</p>
+    </details>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> HAMPA · Sydney, Australia. Disclaimer: not affiliated with Airbnb.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
