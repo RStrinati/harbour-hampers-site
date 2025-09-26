@@ -4,83 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAMPA - First Impressions, Handled.</title>
-    <meta name="description" content="Pre-arrival welcome hampers for Sydney short-stay hosts."/>
+    <meta name="description" content="Welcome hamper service for short-stay hosts in Sydney. Curated AM and PM hampers delivered before guest check-in.">
+    <meta name="keywords" content="welcome hamper, Sydney, short-stay, Airbnb, guest experience">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "HAMPA",
+      "description": "Welcome hamper service for short-stay hosts in Sydney",
+      "url": "https://hampa.example",
+      "telephone": "+61-XXX-XXX-XXX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      },
+      "sameAs": [
+        "https://www.instagram.com/hampa",
+        "https://www.facebook.com/hampa"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <header class="brand">
-        <img src="assets/logo.svg" alt="HAMPA" class="logo">
-    </header>
-
     <section class="hero">
-        <h1>HAMPA</h1>
-        <p class="tagline">First Impressions, Handled.</p>
-        <p class="pitch">Pre-arrival welcome hampers for Sydney short-stay hosts - local favourites, guest essentials and a mini guide, delivered before check-in.</p>
-        <div class="actions">
-            <a href="#sample" class="btn">Request a sample</a>
-            <a href="#calendar" class="btn ghost">Connect calendar</a>
+        <div class="hero-bg">
+            <div class="am-bg"></div>
+            <div class="pm-bg"></div>
+        </div>
+        <div class="hero-content">
+            <img src="assets/logo.svg" alt="HAMPA" class="logo">
+            <h1>First Impressions, Handled.</h1>
+            <p class="subline">Morning or evening, we curate hampers that make guests feel at home.</p>
+            <a href="#order-form" class="btn">Order a Hamper</a>
         </div>
     </section>
 
-    <main class="container">
-        <section class="how">
-            <h2>How it works</h2>
-            <ol class="cards">
-                <li>Choose your hamper <span class="note">(standard; options later)</span>.</li>
-                <li>Tell us your schedule <span class="note">(form or via calendar)</span>.</li>
-                <li>We handle the rest <span class="note">(assemble, deliver, restock)</span>.</li>
-            </ol>
-        </section>
+    <section class="what-we-do">
+        <div class="container">
+            <div class="grid">
+                <div class="hamper am-hamper">
+                    <img src="img/am-hamper.jpg" alt="AM Hamper">
+                    <div class="icons">
+                        <img src="icon/coffee.svg" alt="Coffee">
+                        <img src="icon/pastry.svg" alt="Pastry">
+                        <img src="icon/orange.svg" alt="Orange">
+                        <img src="icon/mail.svg" alt="Mail">
+                    </div>
+                    <h2>AM Hamper</h2>
+                    <p>Perfect for early check-ins or a fresh start to the day.</p>
+                </div>
+                <div class="hamper pm-hamper">
+                    <img src="img/pm-hamper.jpg" alt="PM Hamper">
+                    <div class="icons">
+                        <img src="icon/wine.svg" alt="Wine">
+                        <img src="icon/cheese.svg" alt="Cheese">
+                        <img src="icon/chocolate.svg" alt="Chocolate">
+                        <img src="icon/candle.svg" alt="Candle">
+                    </div>
+                    <h2>PM Hamper</h2>
+                    <p>Tailored for evening arrivals and cozy stays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="inside">
-            <h2>What's inside</h2>
-            <ul>
-                <li>Tim Tams</li>
-                <li>Byron Bay Cookies</li>
-                <li>T2 + local coffee</li>
-                <li>mini honey/jam</li>
-                <li>2x sparkling waters</li>
-                <li>tote + welcome card</li>
-                <li>optional eco toiletries</li>
-            </ul>
-            <p class="note">Local guide card included. Suburb add-ons: Bondi, Surry Hills, Manly.</p>
-        </section>
+    <section class="why-love">
+        <div class="container">
+            <h2>Why Hosts Love HAMPA</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="icon/clock.svg" alt="Clock">
+                    <h3>Saves you time.</h3>
+                    <p>No more last-minute shopping or worrying about guest essentials.</p>
+                </div>
+                <div class="card">
+                    <img src="icon/star.svg" alt="Star">
+                    <h3>Elevates guest experience.</h3>
+                    <p>Impress your guests with thoughtful, local touches.</p>
+                </div>
+                <div class="card">
+                    <img src="icon/box.svg" alt="Box">
+                    <h3>Simple ordering & delivery.</h3>
+                    <p>Easy online ordering with reliable, pre-arrival delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="hamper-showcase">
-            <h2>Welcome to Sydney</h2>
-            <p>Each hamper is thoughtfully curated with premium local products and essentials to give your guests the perfect Sydney welcome.</p>
-            <img src="assets/WelcomeHamper-01.jpg" alt="Welcome Hamper with Sydney local products" class="hamper-image">
-        </section>
-
-        <section id="sample" class="lead">
-            <h2>Request a complimentary sample</h2>
-            <form id="lead-form">
-                <input type="hidden" id="form-endpoint" value="https://formspree.io/f/YOUR_FORMSPREE_ID">
-                <label for="name">Name*</label>
-                <input id="name" name="name" required>
-                <label for="company">Company</label>
-                <input id="company" name="company">
-                <label for="email">Email*</label>
-                <input id="email" name="email" type="email" required>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel">
-                <label for="listings"># listings</label>
-                <input id="listings" name="listings" type="number" min="0">
-                <label for="suburbs">Delivery suburbs</label>
-                <input id="suburbs" name="suburbs">
-                <label class="checkbox"><input type="checkbox" id="consent" required> I agree to be contacted about HAMPA.</label>
-                <button type="submit" class="btn">Send request</button>
-                <p id="lead-status" class="status" aria-live="polite"></p>
+    <section class="cta-form" id="order-form">
+        <div class="container">
+            <h2>Ready to welcome your guests in style?</h2>
+            <a href="#order-form" class="btn">Get Started</a>
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="address">Delivery Address</label>
+                <textarea id="address" name="address" required></textarea>
+                <label for="hamper-type">Hamper Type</label>
+                <select id="hamper-type" name="hamper-type" required>
+                    <option value="">Select...</option>
+                    <option value="AM">AM Hamper</option>
+                    <option value="PM">PM Hamper</option>
+                </select>
+                <button type="submit" class="btn">Place Order</button>
             </form>
-            <details class="privacy">
-                <summary>Privacy notice</summary>
-                <p>We use your details solely to respond to your enquiry. Contact privacy@hampa.example for access or removal.</p>
-            </details>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer class="footer">
-        <p>&copy; 2025 HAMPA - Sydney, Australia. Disclaimer: not affiliated with Airbnb.</p>
+        <div class="container">
+            <img src="assets/logo.svg" alt="HAMPA" class="logo-small">
+            <p>First Impressions, Handled.</p>
+            <div class="social">
+                <a href="#" aria-label="Instagram"><img src="icon/instagram.svg" alt="Instagram"></a>
+                <a href="#" aria-label="Facebook"><img src="icon/facebook.svg" alt="Facebook"></a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
