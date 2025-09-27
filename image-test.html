@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        .test-img { 
+            width: 300px; 
+            height: 200px; 
+            border: 2px solid red; 
+            margin: 10px; 
+            object-fit: cover;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    <div class="container">
+        <div>
+            <h3>AM Hero:</h3>
+            <img src="img/am-hero.jpg" alt="AM Hero" class="test-img">
+        </div>
+        <div>
+            <h3>PM Hero:</h3>
+            <img src="img/pm-hero.jpg" alt="PM Hero" class="test-img">
+        </div>
+        <div>
+            <h3>AM Hamper (working):</h3>
+            <img src="img/am-hamper.jpg" alt="AM Hamper" class="test-img">
+        </div>
+        <div>
+            <h3>PM Hamper (working):</h3>
+            <img src="img/pm-hamper.jpg" alt="PM Hamper" class="test-img">
+        </div>
+        <div>
+            <h3>Logo (working):</h3>
+            <img src="assets/logo.svg" alt="Logo" class="test-img">
+        </div>
+    </div>
+</body>
+</html>

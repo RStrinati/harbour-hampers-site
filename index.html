@@ -30,20 +30,49 @@
     </script>
 </head>
 <body>
-    <section class="hero">
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="assets/logo.svg" alt="HAMPA" class="nav-logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#what-we-do" class="nav-link">Our Hampers</a></li>
+                    <li><a href="#why-love" class="nav-link">Why Choose Us</a></li>
+                    <li><a href="#contact-form" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#contact-form" class="btn btn-nav">Get In Touch</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <div class="brand-banner">
+            <div class="container">
+                <div class="brand-content">
+                    <img src="img/banner-logo.png" alt="HAMPA" class="banner-logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
         <div class="hero-bg">
-            <div class="am-bg"></div>
-            <div class="pm-bg"></div>
+            <img src="img/am-hero.jpg" alt="Hero Background" class="hero-img">
         </div>
         <div class="hero-content">
-            <img src="assets/logo.svg" alt="HAMPA" class="logo">
             <h1>First Impressions, Handled.</h1>
             <p class="subline">Morning or evening, we curate hampers that make guests feel at home.</p>
-            <a href="#order-form" class="btn">Order a Hamper</a>
+            <a href="#contact-form" class="btn">Get In Touch</a>
         </div>
     </section>
 
-    <section class="what-we-do">
+    <section class="what-we-do" id="what-we-do">
         <div class="container">
             <div class="grid">
                 <div class="hamper am-hamper">
@@ -72,7 +101,7 @@
         </div>
     </section>
 
-    <section class="why-love">
+    <section class="why-love" id="why-love">
         <div class="container">
             <h2>Why Hosts Love HAMPA</h2>
             <div class="cards">
@@ -95,35 +124,129 @@
         </div>
     </section>
 
-    <section class="cta-form" id="order-form">
+    <section class="cta-form" id="contact-form">
         <div class="container">
-            <h2>Ready to welcome your guests in style?</h2>
-            <a href="#order-form" class="btn">Get Started</a>
+            <h2>Ready to elevate your guest experience?</h2>
+            <p class="cta-subtitle">Let's discuss how HAMPA can create the perfect welcome for your guests.</p>
             <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="address">Delivery Address</label>
-                <textarea id="address" name="address" required></textarea>
-                <label for="hamper-type">Hamper Type</label>
-                <select id="hamper-type" name="hamper-type" required>
-                    <option value="">Select...</option>
-                    <option value="AM">AM Hamper</option>
-                    <option value="PM">PM Hamper</option>
-                </select>
-                <button type="submit" class="btn">Place Order</button>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type" name="property-type">
+                            <option value="">Select...</option>
+                            <option value="Airbnb">Airbnb</option>
+                            <option value="Serviced Apartment">Serviced Apartment</option>
+                            <option value="Hotel">Boutique Hotel</option>
+                            <option value="Holiday Rental">Holiday Rental</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Property Address (Sydney area)</label>
+                    <textarea id="address" name="address" rows="2" placeholder="Enter your property address for delivery planning"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="guests-per-month">Estimated Guests Per Month</label>
+                    <select id="guests-per-month" name="guests-per-month">
+                        <option value="">Select...</option>
+                        <option value="1-5">1-5 guests</option>
+                        <option value="6-15">6-15 guests</option>
+                        <option value="16-30">16-30 guests</option>
+                        <option value="30+">30+ guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your needs *</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="What would you like to know about our hamper service? Do you have specific dietary requirements or preferences for your guests?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-large">Send My Enquiry</button>
             </form>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <img src="assets/logo.svg" alt="HAMPA" class="logo-small">
-            <p>First Impressions, Handled.</p>
-            <div class="social">
-                <a href="#" aria-label="Instagram"><img src="icon/instagram.svg" alt="Instagram"></a>
-                <a href="#" aria-label="Facebook"><img src="icon/facebook.svg" alt="Facebook"></a>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo.svg" alt="HAMPA" class="footer-logo">
+                    <p class="footer-tagline">First Impressions, Handled.</p>
+                    <p class="footer-description">Curated welcome hampers for Sydney's finest short-stay accommodations. We help hosts create unforgettable first impressions for their guests.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <img src="icon/mail.svg" alt="Email" class="contact-icon">
+                        <div>
+                            <strong>Email</strong>
+                            <p>hello@hampa.com.au</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <img src="icon/mail.svg" alt="Phone" class="contact-icon">
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+61 XXX XXX XXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <img src="icon/box.svg" alt="Location" class="contact-icon">
+                        <div>
+                            <strong>Service Area</strong>
+                            <p>Greater Sydney, NSW</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li>AM Welcome Hampers</li>
+                        <li>PM Welcome Hampers</li>
+                        <li>Custom Hamper Design</li>
+                        <li>Regular Delivery Service</li>
+                        <li>Special Dietary Options</li>
+                        <li>Bulk Booking Discounts</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Follow HAMPA</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <img src="icon/instagram.svg" alt="Instagram">
+                            <span>@hampa_sydney</span>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <img src="icon/facebook.svg" alt="Facebook">
+                            <span>HAMPA Sydney</span>
+                        </a>
+                    </div>
+                    <div class="footer-cta">
+                        <p><strong>Ready to get started?</strong></p>
+                        <a href="#contact-form" class="btn btn-small">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 HAMPA. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+                <p class="footer-note">HAMPA is a Sydney-based welcome hamper service dedicated to enhancing the guest experience for short-stay accommodations.</p>
             </div>
         </div>
     </footer>

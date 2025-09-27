@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        .test-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid red;
+            margin: 10px;
+        }
+        .hero-test {
+            width: 100%;
+            height: 400px;
+            background: url('img/am-hero.jpg') left 50% / 50% 100% no-repeat,
+                        url('img/pm-hero.jpg') right 50% / 50% 100% no-repeat;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <h2>Direct Image Tags:</h2>
+    <img src="img/am-hero.jpg" alt="AM Hero" class="test-img">
+    <img src="img/pm-hero.jpg" alt="PM Hero" class="test-img">
+    
+    <h2>Working AM Hamper Image:</h2>
+    <img src="img/am-hamper.jpg" alt="AM Hamper" class="test-img">
+    
+    <h2>Background Image Test:</h2>
+    <div class="hero-test"></div>
+</body>
+</html>
