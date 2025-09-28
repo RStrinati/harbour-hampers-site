@@ -70,7 +70,7 @@ if (orderForm) {
       const formData = new FormData(orderForm);
       
       // Use your Cloudflare Pages function endpoint
-      const workerUrl = '/submit-form';
+      const workerUrl = 'https://hampa-form-handler.rstrinati.workers.dev/submit-form';
       
       const res = await fetch(workerUrl, {
         method: 'POST',

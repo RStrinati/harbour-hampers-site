@@ -1,5 +1,5 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: cors() });
     }
@@ -8,7 +8,7 @@ export default {
     
     // Handle form submissions
     if (url.pathname === '/submit-form' && request.method === 'POST') {
-      return handleFormSubmission(request);
+      return handleFormSubmission(request, env);
     }
     
     // Handle iCal parsing (existing functionality)
@@ -37,7 +37,7 @@ export default {
   }
 };
 
-async function handleFormSubmission(request) {
+async function handleFormSubmission(request, env) {
   try {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
@@ -68,7 +68,7 @@ async function handleFormSubmission(request) {
     }
     
     // Send to Zapier webhook
-    const webhookResult = await sendToZapier(data);
+    const webhookResult = await sendToZapier(data, env);
     
     if (webhookResult.success) {
       return new Response(JSON.stringify({
@@ -159,8 +159,8 @@ async function sendEmail(content, formData) {
   }
 }
 
-async function sendToZapier(formData) {
-  const ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/13533183/u10kbt4/';
+async function sendToZapier(formData, env) {
+  const ZAPIER_WEBHOOK = env.WEBHOOK_URL || 'https://hooks.zapier.com/hooks/catch/13533183/u10kbt4/'; // Fallback to hardcoded if not set
   
   try {
     const response = await fetch(ZAPIER_WEBHOOK, {
