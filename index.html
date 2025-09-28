@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAMPA - First Impressions, Handled.</title>
-    <meta name="description" content="Welcome hamper service for short-stay hosts in Sydney. Curated AM and PM hampers delivered before guest check-in.">
-    <meta name="keywords" content="welcome hamper, Sydney, short-stay, Airbnb, guest experience">
+    <title>HAMPA - Welcome Hampers for Sydney Short-Stay Hosts | First Impressions, Handled</title>
+    <meta name="description" content="Premium welcome hamper service for Sydney short-stay hosts. AM & PM curated hampers delivered before guest check-in. Perfect for Airbnb, serviced apartments, and boutique hotels.">
+    <meta name="keywords" content="welcome hamper Sydney, Airbnb host services, guest experience, short-stay hampers, welcome gifts Sydney, hospitality services, guest amenities">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hampa.com.au/">
+    <meta property="og:title" content="HAMPA - Welcome Hampers for Sydney Short-Stay Hosts">
+    <meta property="og:description" content="Premium welcome hamper service for Sydney short-stay hosts. AM & PM curated hampers delivered before guest check-in.">
+    <meta property="og:image" content="https://hampa.com.au/img/am-hero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hampa.com.au/">
+    <meta property="twitter:title" content="HAMPA - Welcome Hampers for Sydney Short-Stay Hosts">
+    <meta property="twitter:description" content="Premium welcome hamper service for Sydney short-stay hosts. AM & PM curated hampers delivered before guest check-in.">
+    <meta property="twitter:image" content="https://hampa.com.au/img/am-hero.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" as="style">
+    <link rel="preload" href="img/am-hero.jpg" as="image">
+    <link rel="preload" href="assets/logo.svg" as="image")
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -13,20 +32,60 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "HAMPA",
-      "description": "Welcome hamper service for short-stay hosts in Sydney",
-      "url": "https://hampa.example",
+      "description": "Premium welcome hamper service for Sydney short-stay hosts. Curated AM & PM hampers delivered before guest check-in.",
+      "url": "https://hampa.com.au",
       "telephone": "+61-XXX-XXX-XXX",
+      "email": "hello@hampa.com.au",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Sydney",
         "addressRegion": "NSW",
         "addressCountry": "AU"
       },
+      "areaServed": {
+        "@type": "City",
+        "name": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Welcome Hamper Service",
+      "priceRange": "$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "HAMPA Welcome Hampers",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AM Hamper",
+              "description": "Perfect for early check-ins or a fresh start to the day"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "PM Hamper",
+              "description": "Tailored for evening arrivals and cozy stays"
+            }
+          }
+        ]
+      },
       "sameAs": [
-        "https://www.instagram.com/hampa",
-        "https://www.facebook.com/hampa"
+        "https://www.instagram.com/hampa_sydney",
+        "https://www.facebook.com/HAMPA-Sydney"
       ]
     }
+    </script>
+    
+    <!-- Google Analytics 4 - Replace with your GA4 measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
     </script>
 </head>
 <body>
@@ -128,7 +187,10 @@
         <div class="container">
             <h2>Ready to elevate your guest experience?</h2>
             <p class="cta-subtitle">Let's discuss how HAMPA can create the perfect welcome for your guests.</p>
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <form action="/submit-form" method="POST" id="contact-form-element">
+                <!-- Add honeypot field for spam protection -->
+                <input type="text" name="_gotcha" style="display:none !important">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Full Name *</label>

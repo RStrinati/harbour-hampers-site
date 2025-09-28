@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects and rewrites
+/api/* /functions/:splat 200
+/submit-form /functions/submit-form 200
+
+# Fallback for SPA (if needed)
+/* /index.html 200

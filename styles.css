@@ -29,6 +29,9 @@ body {
   color: var(--text);
   line-height: 1.6;
   background: var(--pm-cream);
+  /* Add mobile touch improvements */
+  -webkit-tap-highlight-color: rgba(255, 140, 66, 0.3);
+  touch-action: manipulation;
 }
 
 h1, h2, h3 {
@@ -170,7 +173,7 @@ h1, h2, h3 {
 }
 
 .banner-logo {
-  height: 60px;
+  height: 80px;
   max-width: 100%;
   transition: transform 0.3s ease;
 }
@@ -447,6 +450,34 @@ h1, h2, h3 {
   outline: none;
   border-color: var(--am-orange);
   box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.1);
+}
+
+/* Form validation styles */
+.cta-form input.error,
+.cta-form textarea.error,
+.cta-form select.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Form messages */
+.form-message {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .cta-form textarea {

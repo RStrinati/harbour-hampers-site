@@ -1,0 +1,13 @@
+name = "hampa-form-handler"
+main = "worker.js"
+compatibility_date = "2024-09-25"
+
+# Environment variables (set using wrangler secret)
+# WEBHOOK_URL - Your webhook URL for receiving form submissions
+# RESEND_API_KEY - Your Resend API key (if using Resend)
+
+[env.production]
+name = "hampa-form-handler"
+
+[env.staging]
+name = "hampa-form-handler-staging"
