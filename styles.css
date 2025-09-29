@@ -173,7 +173,7 @@ h1, h2, h3 {
 }
 
 .banner-logo {
-  height: 80px;
+  height: 120px;
   max-width: 100%;
   transition: transform 0.3s ease;
 }
@@ -682,7 +682,7 @@ h1, h2, h3 {
   }
 
   .banner-logo {
-    height: 50px;
+    height: 75px;
   }
 
   .hero {
@@ -777,7 +777,7 @@ h1, h2, h3 {
   }
 
   .banner-logo {
-    height: 45px;
+    height: 68px;
   }
 
   .hero {
