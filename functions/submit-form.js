@@ -1,4 +1,7 @@
 export async function onRequestPost({ request, env }) {
+  console.log('Function called with env:', Object.keys(env));
+  console.log('RESEND_API_KEY present:', !!env.RESEND_API_KEY);
+  
   try {
     const formData = await request.formData();
 
@@ -15,7 +18,7 @@ export async function onRequestPost({ request, env }) {
     if (formData.get('_gotcha')) {
       return new Response(JSON.stringify({ success: false, error: 'Spam detected' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: getCorsHeaders(),
       });
     }
 
@@ -23,7 +26,7 @@ export async function onRequestPost({ request, env }) {
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ success: false, error: 'Name, email, and message are required' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: getCorsHeaders(),
       });
     }
 
@@ -32,14 +35,23 @@ export async function onRequestPost({ request, env }) {
     if (!emailRegex.test(email)) {
       return new Response(JSON.stringify({ success: false, error: 'Invalid email format' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: getCorsHeaders(),
+      });
+    }
+
+    // Check if API key is available
+    if (!env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not found in environment');
+      return new Response(JSON.stringify({ success: false, error: 'Email service not configured' }), {
+        status: 500,
+        headers: getCorsHeaders(),
       });
     }
 
     // Send email using Resend API directly
     const emailPayload = {
-      from: 'r.strinati@strinatidesign.com',
-      to: 'r.strinati@strinatidesign.com',
+      from: 'hello@farefinder.pro', // From your verified domain
+      to: 'r.strinati@strinatidesign.com', // Your receiving email
       subject: 'New Welcome Hamper Inquiry',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -70,7 +82,7 @@ export async function onRequestPost({ request, env }) {
       console.error('Resend API error:', response.status, errorText);
       return new Response(JSON.stringify({ success: false, error: 'Failed to send email' }), {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: getCorsHeaders(),
       });
     }
 
@@ -78,22 +90,27 @@ export async function onRequestPost({ request, env }) {
     console.log('Email sent successfully:', result);
 
     return new Response(JSON.stringify({ success: true, message: 'Thank you! We\'ll be in touch within 24 hours.' }), {
-      headers: { 'Content-Type': 'application/json' },
+      headers: getCorsHeaders(),
     });
   } catch (error) {
     console.error('Function error:', error);
     return new Response(JSON.stringify({ success: false, error: 'Server error' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: getCorsHeaders(),
     });
   }
 }export async function onRequestOptions() {
   return new Response(null, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Max-Age': '86400'
-    }
+    headers: getCorsHeaders()
   });
+}
+
+function getCorsHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400'
+  };
 }
