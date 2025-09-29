@@ -1,5 +1,3 @@
-import { Resend } from 'resend';
-
 export async function onRequestPost({ request, env }) {
   try {
     const formData = await request.formData();
@@ -38,11 +36,8 @@ export async function onRequestPost({ request, env }) {
       });
     }
 
-    // Initialize Resend
-    const resend = new Resend(env.RESEND_API_KEY);
-
-    // Send email
-    const { data, error } = await resend.emails.send({
+    // Send email using Resend API directly
+    const emailPayload = {
       from: 'r.strinati@strinatidesign.com',
       to: 'r.strinati@strinatidesign.com',
       subject: 'New Welcome Hamper Inquiry',
@@ -59,15 +54,28 @@ export async function onRequestPost({ request, env }) {
         <hr>
         <p><small>Submitted on: ${new Date().toISOString()}</small></p>
       `,
+    };
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailPayload),
     });
 
-    if (error) {
-      console.error('Resend error:', error);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Resend API error:', response.status, errorText);
       return new Response(JSON.stringify({ success: false, error: 'Failed to send email' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    const result = await response.json();
+    console.log('Email sent successfully:', result);
 
     return new Response(JSON.stringify({ success: true, message: 'Thank you! We\'ll be in touch within 24 hours.' }), {
       headers: { 'Content-Type': 'application/json' },
@@ -79,9 +87,7 @@ export async function onRequestPost({ request, env }) {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-}
-
-export async function onRequestOptions() {
+}export async function onRequestOptions() {
   return new Response(null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
